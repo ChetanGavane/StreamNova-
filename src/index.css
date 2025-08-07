@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Netflix-style gradient backgrounds */
+  .bg-gradient-netflix {
+    background: linear-gradient(77deg,rgba(0,0,0,.6) 0,rgba(0,0,0,0) 85%);
+  }
+  
+  /* Premium card hover effect */
+  .card-hover-effect {
+    @apply transition-all duration-300 ease-out;
+    transform-origin: center bottom;
+  }
+  
+  .card-hover-effect:hover {
+    @apply -translate-y-1 scale-105 shadow-xl shadow-black/40;
+    z-index: 10;
+  }
+  
+  /* Stylized scrollbar for browsers that support it */
+  .styled-scrollbar::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+  
+  .styled-scrollbar::-webkit-scrollbar-track {
+    @apply bg-black/20;
+  }
+  
+  .styled-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-red-600/60 rounded-full;
+  }
+  
+  .styled-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-red-600/80;
+  }
+}
+
+body {
+  @apply bg-black text-white;
+  font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Add a subtle animation for content fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadein {
+  animation: fadeIn 0.5s ease-out forwards;
+}
